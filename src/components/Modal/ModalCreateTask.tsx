@@ -2,7 +2,6 @@ import {
   Button,
   Modal,
   ModalBody,
-  ModalCloseButton,
   ModalContent,
   ModalFooter,
   ModalHeader,
@@ -55,7 +54,7 @@ export const ModalCreateTask = ({ isOpen, onClose }: ModalCreateTaskProps) => {
 
   const handleCreateTask = (data: TaskData) => {
     const newData = { ...data, userId: user.id, completed: false };
-    createTask(newData, accessToken);
+    createTask(newData, accessToken).then((res) => onClose());
   };
 
   return (
@@ -71,24 +70,23 @@ export const ModalCreateTask = ({ isOpen, onClose }: ModalCreateTaskProps) => {
         <ModalHeader display="flex">
           <Center bg="purple.500" w="30px" h="30px" borderRadius="5px">
             <FaClipboard color={theme.colors.white} />
-            <Text fontWeight="bold" ml="2">
-              Adicionar Tarefa
-            </Text>
-            <Center
-              onClick={onClose}
-              as="button"
-              ml="auto"
-              w="32px"
-              h="32px"
-              bg="red.600"
-              fontSize="lg"
-              borderRadius="md"
-            >
-              <FaTimes color={theme.colors.white} />
-            </Center>
+          </Center>
+          <Text fontWeight="bold" ml="2">
+            Adicionar Tarefa
+          </Text>
+          <Center
+            onClick={onClose}
+            as="button"
+            ml="auto"
+            w="32px"
+            h="32px"
+            bg="red.600"
+            fontSize="lg"
+            borderRadius="md"
+          >
+            <FaTimes color={theme.colors.white} />
           </Center>
         </ModalHeader>
-        <ModalCloseButton />
         <ModalBody textAlign="center">
           <VStack spacing="5">
             <Input

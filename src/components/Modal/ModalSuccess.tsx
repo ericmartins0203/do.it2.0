@@ -2,7 +2,6 @@ import {
   Button,
   Modal,
   ModalBody,
-  ModalCloseButton,
   ModalContent,
   ModalFooter,
   ModalHeader,
@@ -37,24 +36,23 @@ export const ModalSuccess = ({
         <ModalHeader display="flex">
           <Center bg="purple.500" w="30px" h="30px" borderRadius="5px">
             <FaExclamation color={theme.colors.white} />
-            <Text fontWeight="bold" ml="2">
-              Yeesss...
-            </Text>
-            <Center
-              onClick={onClose}
-              as="button"
-              ml="auto"
-              w="32px"
-              h="32px"
-              bg="red.600"
-              fontSize="lg"
-              borderRadius="md"
-            >
-              <FaTimes color={theme.colors.white} />
-            </Center>
+          </Center>
+          <Text fontWeight="bold" ml="2">
+            Yeesss...
+          </Text>
+          <Center
+            onClick={onClose}
+            as="button"
+            ml="auto"
+            w="32px"
+            h="32px"
+            bg="red.600"
+            fontSize="lg"
+            borderRadius="md"
+          >
+            <FaTimes color={theme.colors.white} />
           </Center>
         </ModalHeader>
-        <ModalCloseButton />
         <ModalBody textAlign="center">
           <Box
             dangerouslySetInnerHTML={{
